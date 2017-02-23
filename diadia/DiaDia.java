@@ -1,3 +1,4 @@
+package diadia;
 
 import java.util.Scanner;
 
@@ -13,7 +14,7 @@ import java.util.Scanner;
 
 public class DiaDia {
 	private Partita partita;
-    private static final String MESSAGGIO_BENVENUTO = 
+	private static final String MESSAGGIO_BENVENUTO = 
 		"Ti trovi nell'Universita', ma oggi e' diversa dal solito...\n" +
 		"Meglio andare al piu' presto in biblioteca a studiare. Ma dov'e'?\n"+
 		"I locali sono popolati da strani personaggi, " +
@@ -26,7 +27,7 @@ public class DiaDia {
 
     public DiaDia() {
     	this.partita = new Partita();
-    }
+    	}
 
 	public void gioca() {
 		String istruzione; 
@@ -58,10 +59,12 @@ public class DiaDia {
 		else
 			System.out.println("Comando sconosciuto");
 		if (this.partita.vinta()) {
-			System.out.println("Hai vinto!");
+		System.out.println("Hai vinto!");
 			return true;
-		} else
-			return false;
+		} 
+		 
+		 return false;
+		
 	}   
     
     // implementazioni dei comandi dell'utente:
@@ -83,15 +86,15 @@ public class DiaDia {
 		 if(direzione==null)
 			 System.out.println("Dove vuoi andare ?");
 		 Stanza prossimaStanza = null;
-		 prossimaStanza = this.partita.getStanzaCorrente().getUscita(direzione);
+		 prossimaStanza = this.partita.labirinto.getStanzaDiIngresso().getUscita(direzione);
 		 if (prossimaStanza == null)
 			 System.out.println("Direzione inesistente");
 		 else {
-			this.partita.setStanzaCorrente(prossimaStanza);
+			this.partita.labirinto.setStanzaDiIngresso(prossimaStanza);
 			int cfu = this.partita.getCfu();
 			this.partita.setCfu(cfu--);
 		 }
-		System.out.println(partita.getStanzaCorrente().getNome());
+		System.out.println(partita.labirinto.getStanzaDiIngresso().getNome());
 	 }
 
     /**
