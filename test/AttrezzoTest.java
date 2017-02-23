@@ -1,4 +1,5 @@
 package test;
+import diadia.Attrezzo;
 
 public class AttrezzoTest {
 

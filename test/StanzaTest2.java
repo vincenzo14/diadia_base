@@ -1,4 +1,6 @@
 package test;
+import diadia.Stanza;
+import diadia.Attrezzo;
 
 public class StanzaTest2 {
 
@@ -19,8 +21,8 @@ public class StanzaTest2 {
 		System.out.println(mensa.getDescrizione());
 		System.out.println(bar.getDescrizione());
 				
-		System.out.println("Nome e peso dietro la porta nord del Bar: \n" + bar.getUscita("nord").getAttrezzo());
-		System.out.println("Nome e peso dietro la porta sud dela Mensa: \n" + mensa.getUscita("sud").getAttrezzo());
+		System.out.println("Nome e peso dell'Attrezzo dietro la porta nord del Bar: \n" + bar.getUscita("nord").getAttrezzo());
+		System.out.println("Nome e peso dell'Attrezzo dietro la porta sud dela Mensa: \n" + mensa.getUscita("sud").getAttrezzo());
 		
 	}
 

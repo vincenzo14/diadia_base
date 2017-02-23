@@ -1,4 +1,5 @@
 package test;
+import diadia.Stanza;
 
 public class StanzaTest1 {
 
@@ -15,8 +16,6 @@ public class StanzaTest1 {
 
 		System.out.println("Descrizione stanza dietro la porta sud della mensa: \n" + mensa.getUscita("sud").getDescrizione());
 		
-		System.out.println("Modifica di un File a caso");		
-		
-	}
+		}
 
 }
