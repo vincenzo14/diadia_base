@@ -9,7 +9,7 @@ public class AttrezzoTest {
 		Attrezzo scudo = new Attrezzo("Scudo", 10);
 		Attrezzo cacciavite = new Attrezzo("Cacciavite", 3);
 		
-		System.out.println("Descrizione dei due Attrezzi: " + scudo.toString() + cacciavite.toString());
+		System.out.println("Descrizione dei due Attrezzi: " + scudo.toString() + " " + cacciavite.toString());
 		
 		int somma = scudo.getPeso() + cacciavite.getPeso();
 		

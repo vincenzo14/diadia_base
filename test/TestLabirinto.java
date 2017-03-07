@@ -13,7 +13,6 @@ public class TestLabirinto {
 
 	private Labirinto labirinto = new Labirinto();
 	private Stanza biblioteca = new Stanza("Biblioteca");
-	private Stanza laboratorio = new Stanza("Laboratorio Campus");
 	
 	@Before
 	public void setUp() {

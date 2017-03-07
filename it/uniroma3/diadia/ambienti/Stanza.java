@@ -128,18 +128,19 @@ public class Stanza {
 	 */
 	public String toString() {
 		StringBuilder s = new StringBuilder();
+		s.append(this.getNome());
+		s.append("\nContenuto Stanza: ("+this.numeroAttrezzi+" / 10) Attrezzi");
+		s.append("\nUscite: ");
+		for (String direzione : this.direzioni)
+			if (direzione!=null)
+				s.append(" " + direzione);
 		if (!this.isEmpty()) {
-			s.append("Contenuto Stanza: ("+this.numeroAttrezzi+" / 10) Attrezzi");
-			s.append("\nUscite: ");
-			for (String direzione : this.direzioni)
-				if (direzione!=null)
-					s.append(" " + direzione);
 			s.append("\nAttrezzi nella Stanza: ");
 			for (int i= 0; i<this.numeroAttrezzi; i++)
 				s.append("\n" + attrezzi[i].toString()+" ");
 		}
 		else
-			s.append("Stanza vuota");
+			s.append("\nNessun Attrezzo nella Stanza");
 		return s.toString();
 	}
 

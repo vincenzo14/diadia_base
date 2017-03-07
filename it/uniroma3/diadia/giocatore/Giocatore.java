@@ -11,10 +11,11 @@ package it.uniroma3.diadia.giocatore;
 public class Giocatore {
 	private int cfu;
 	private static int CFU_INIZIALI = 20;
+	private static int ATTREZZI_MASSIMI = 10;
 	public Borsa borsa;
 
 	public Giocatore(){
-		this.borsa = new Borsa(10);
+		this.borsa = new Borsa(ATTREZZI_MASSIMI);
 		this.cfu = CFU_INIZIALI;
 	}
 
