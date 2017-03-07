@@ -1,5 +1,6 @@
 package test;
-import diadia.Stanza;
+
+import it.uniroma3.diadia.ambienti.Stanza;
 
 public class StanzaTest1 {
 

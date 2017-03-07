@@ -5,8 +5,10 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import diadia.Attrezzo;
-import diadia.Stanza;
+import it.uniroma3.diadia.ambienti.Stanza;
+import it.uniroma3.diadia.attrezzi.Attrezzo;
+
+
 
 public class TestStanza {
 
@@ -39,19 +41,44 @@ public class TestStanza {
 
 	}
 
+	//	TEST SULLA STANZA
+
 	@Test
-	public void testImpostaUscita() {
+	public void testUscita() {
 		assertEquals(aulaN11, this.aulaN10.getUscita("nord"));
 	}
-	
+
 	@Test
-	public void testImpostaUscitaNonNulla() {
+	public void testUscitaNonNulla() {
 		assertNotNull(this.aulaN1.getUscita("nord"));
 	}
 
 	@Test
-	public void testImpostaUscitaNulla() {
+	public void testUscitaNulla() {
 		assertNull(this.aulaN11.getUscita("nord"));
+
+	}
+
+	//	TEST SUGLI ATTREZZI NELLA STANZA
+
+	@Test
+	public void testAttrezzo() {
+		assertEquals(spada, this.aulaN1.getAttrezzo("Spada"));
+	}
+
+	@Test
+	public void testAttrezzoPerNome() {
+		assertEquals(spada, this.aulaN1.getAttrezzo("Spada"));
+	}
+
+	@Test
+	public void testVerificaAttrezzo() {
+		assertTrue(this.aulaN10.hasAttrezzo("Scudo"));
+	}
+
+	@Test
+	public void testAttrezzoNullo() {
+		assertNull(this.aulaN10.getAttrezzo("Lancia"));
 
 	}
 }

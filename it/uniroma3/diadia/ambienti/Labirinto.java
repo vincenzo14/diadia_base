@@ -1,7 +1,10 @@
-package diadia;
+package it.uniroma3.diadia.ambienti;
+
+import it.uniroma3.diadia.attrezzi.Attrezzo;
 
 /**
- * Questa classe ha la responsabilità della creazione del labirinto del gioco
+ * Questa classe ha la responsabilità della creazione del labirinto del gioco,
+ * di memorizzare la stanza iniziale (entrata) e quella finale (uscita)
  *
  * @author  Paolo Merialdo, Valter Crescenzi (da un'idea di Michael Kolling and David J. Barnes)
  * @see Stanza
@@ -20,14 +23,15 @@ public class Labirinto {
 		}
 
 	/**
-     * Crea tutte le stanze e le porte di collegamento
+     * Crea tutte le stanze con le relative uscite e attrezzi, 
+     * e infine imposta la stanza iniziale e finale
      */
 	
 public void init() {
 
 	/* crea gli attrezzi */
-	Attrezzo lanterna = new Attrezzo("lanterna",3);
-	Attrezzo osso = new Attrezzo("osso",1);
+	Attrezzo lanterna = new Attrezzo("Lanterna",3);
+	Attrezzo osso = new Attrezzo("Osso",1);
 	
 	/* crea stanze del labirinto */
 	Stanza atrio = new Stanza("Atrio");
