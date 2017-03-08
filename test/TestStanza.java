@@ -37,7 +37,6 @@ public class TestStanza {
 		this.aulaN10.impostaUscita("ovest", ascensore);
 
 		this.aulaN10.addAttrezzo(scudo);
-		this.aulaN1.addAttrezzo(spada);
 
 	}
 
@@ -58,21 +57,48 @@ public class TestStanza {
 		assertNull(this.aulaN11.getUscita("nord"));
 
 	}
+	
+	@Test
+	public void testRimuoviAttrezzoDallaStanza() {
+		this.aulaN10.removeAttrezzo("Scudo");
+		assertFalse(this.aulaN10.hasAttrezzo("Scudo"));
+	}
+	
+	@Test
+	public void testAggiungiAttrezzoNellaStanza() {
+		this.aulaN10.addAttrezzo(spada);
+		assertTrue(this.aulaN10.hasAttrezzo("Spada"));
+	}
+	
+	@Test
+	public void testCercaAttrezzoNellaStanzaPerNome() {
+		assertEquals(scudo, this.aulaN10.getAttrezzo("Scudo"));
+	}
+	
+	@Test
+	public void testStanzaVuota() {
+		assertTrue(this.ascensore.isEmpty());
+	}
+	
+	@Test
+	public void testStanzaNONVuota() {
+		assertFalse(this.aulaN10.isEmpty());
+	}
+
+	@Test
+	public void testEsistenzaAttrezzoNellaStanza() {
+		assertTrue(this.aulaN10.hasAttrezzo("Scudo"));
+	}
 
 	//	TEST SUGLI ATTREZZI NELLA STANZA
 
 	@Test
 	public void testAttrezzo() {
-		assertEquals(spada, this.aulaN1.getAttrezzo("Spada"));
+		assertEquals(scudo, this.aulaN10.getAttrezzo("Scudo"));
 	}
 
 	@Test
-	public void testAttrezzoPerNome() {
-		assertEquals(spada, this.aulaN1.getAttrezzo("Spada"));
-	}
-
-	@Test
-	public void testVerificaAttrezzo() {
+	public void testAttrezzoVerificato() {
 		assertTrue(this.aulaN10.hasAttrezzo("Scudo"));
 	}
 
