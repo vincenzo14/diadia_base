@@ -118,7 +118,7 @@ public class DiaDia {
 
 			}
 			else {
-				System.out.println("Borsa piena liberati prima di Attrezzi inutuli");
+				System.out.println("Borsa troppo Pesante \nLiberati di Attrezzi per alleggerila");
 			}
 		else {
 			System.out.println("Attrezzo non presente nella Stanza");
