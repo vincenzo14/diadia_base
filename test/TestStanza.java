@@ -40,7 +40,7 @@ public class TestStanza {
 
 	}
 
-	//	TEST SULLA STANZA
+	/**	TEST SULLA STANZA */
 
 	@Test
 	public void testUscita() {
@@ -90,7 +90,7 @@ public class TestStanza {
 		assertTrue(this.aulaN10.hasAttrezzo("Scudo"));
 	}
 
-	//	TEST SUGLI ATTREZZI NELLA STANZA
+	/**	TEST SUGLI ATTREZZI NELLA STANZA */
 
 	@Test
 	public void testAttrezzo() {

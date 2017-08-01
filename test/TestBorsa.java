@@ -22,6 +22,8 @@ public class TestBorsa {
 		borsa.addAttrezzo(scudo);
 	}
 
+	/** TEST BORSA */
+	
 	@Test
 	public void testPesoMassimoBorsa() {
 		assertEquals(10, this.borsa.getPesoMax());

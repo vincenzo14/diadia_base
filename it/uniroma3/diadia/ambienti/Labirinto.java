@@ -29,7 +29,7 @@ public class Labirinto {
 	
 public void init() {
 
-	/* crea gli attrezzi */
+	/** crea gli attrezzi */
 	Attrezzo lanterna = new Attrezzo("lanterna",3);
 	Attrezzo osso = new Attrezzo("osso",1);
 	Attrezzo spada = new Attrezzo("spada",4);
@@ -39,14 +39,14 @@ public void init() {
 	Attrezzo freccia = new Attrezzo("freccia",1);
 	
 	
-	/* crea stanze del labirinto */
+	/** crea stanze del labirinto */
 	Stanza atrio = new Stanza("Atrio");
 	Stanza aulaN11 = new Stanza("Aula N11");
 	Stanza aulaN10 = new Stanza("Aula N10");
 	Stanza laboratorio = new Stanza("Laboratorio Campus");
 	Stanza biblioteca = new Stanza("Biblioteca");
 	
-	/* collega le stanze */
+	/** collega le stanze */
 	atrio.impostaUscita("nord", biblioteca);
 	atrio.impostaUscita("est", aulaN11);
 	atrio.impostaUscita("sud", aulaN10);
@@ -60,7 +60,7 @@ public void init() {
 	laboratorio.impostaUscita("ovest", aulaN11);
 	biblioteca.impostaUscita("sud", atrio);
 
-    /* pone gli attrezzi nelle stanze */
+    /** pone gli attrezzi nelle stanze */
 	aulaN10.addAttrezzo(lanterna);
 	atrio.addAttrezzo(osso);
 	aulaN11.addAttrezzo(arco);
@@ -69,7 +69,7 @@ public void init() {
 	laboratorio.addAttrezzo(spada);
 	biblioteca.addAttrezzo(lancia);
 
-	// il gioco comincia nell'atrio
+	/** il gioco comincia nell'atrio */
     this.stanzaDiIngresso = atrio;  
 	this.stanzaVincente = biblioteca;
 }

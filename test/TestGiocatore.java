@@ -22,6 +22,8 @@ public class TestGiocatore {
 		giocatore.borsa.addAttrezzo(spada);
 	}
 
+	/** TEST GIOCATORE */
+	
 	@Test
 	public void testCFUGiocatore() {
 		assertEquals(20, this.giocatore.getCfu());

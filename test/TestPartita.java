@@ -20,7 +20,7 @@ public class TestPartita {
 		this.partita.labirinto.setStanzaDiIngresso(atrio);
 	}
 
-	//	TEST SULLA PARTITA
+	/**	TEST SULLA PARTITA */
 
 	@Test
 	public void testCFU() {

@@ -19,7 +19,7 @@ public class TestLabirinto {
 		this.labirinto.setStanzaDiIngresso(biblioteca);
 		}
 
-	//	TEST LABIRINTO
+	/**	TEST LABIRINTO */
 
 	@Test
 	public void testStanzaDiIngresso() {
