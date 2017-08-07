@@ -44,17 +44,17 @@ public class TestStanza {
 
 	@Test
 	public void testUscita() {
-		assertEquals(aulaN11, this.aulaN10.getUscita("nord"));
+		assertEquals(aulaN11, this.aulaN10.getStanzaAdiacente("nord"));
 	}
 
 	@Test
 	public void testUscitaNonNulla() {
-		assertNotNull(this.aulaN1.getUscita("nord"));
+		assertNotNull(this.aulaN1.getStanzaAdiacente("nord"));
 	}
 
 	@Test
 	public void testUscitaNulla() {
-		assertNull(this.aulaN11.getUscita("nord"));
+		assertNull(this.aulaN11.getStanzaAdiacente("nord"));
 
 	}
 	

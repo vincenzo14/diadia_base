@@ -3,12 +3,13 @@ package it.uniroma3.diadia.giocatore;
 /**
  * Questa classe modella il giocatore della partita.
  *
- * @author  Paolo Merialdo, Valter Crescenzi (da un'idea di Michael Kolling and David J. Barnes)
+ * @author  Vincenzo D'Amico
  * @see Partita
- * @version 0.1
+ * @version 1.0
  */
 
 public class Giocatore {
+	private String nome;
 	private int cfu;
 	private static int CFU_INIZIALI = 20;
 	private static int ATTREZZI_MASSIMI = 10;
@@ -17,6 +18,7 @@ public class Giocatore {
 	public Giocatore(){
 		this.borsa = new Borsa(ATTREZZI_MASSIMI);
 		this.cfu = CFU_INIZIALI;
+		this.nome = "Enzuccio";
 	}
 
 	public int getCfu() {
@@ -26,4 +28,14 @@ public class Giocatore {
 	public void setCfu(int cfu) {
 		this.cfu = cfu;
 	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return " Giocatore : " + nome + " \n CFU = " + cfu + " \n " + borsa;
+	}
+	
+	
 }

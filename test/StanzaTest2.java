@@ -22,8 +22,8 @@ public class StanzaTest2 {
 		System.out.println(mensa.getDescrizione() + "\n");
 		System.out.println(bar.getDescrizione() + "\n");
 				
-		System.out.println("Nome e peso dell'Attrezzo dietro la porta nord del Bar: \n" + bar.getUscita("nord").getAttrezzo("Piatto"));
-		System.out.println("Nome e peso dell'Attrezzo dietro la porta sud dela Mensa: \n" + mensa.getUscita("sud").getAttrezzo("Tazzina"));
+		System.out.println("Nome e peso dell'Attrezzo dietro la porta nord del Bar: \n" + bar.getStanzaAdiacente("nord").getAttrezzo("Piatto"));
+		System.out.println("Nome e peso dell'Attrezzo dietro la porta sud dela Mensa: \n" + mensa.getStanzaAdiacente("sud").getAttrezzo("Tazzina"));
 		
 	}
 

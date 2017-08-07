@@ -5,9 +5,9 @@ import it.uniroma3.diadia.attrezzi.Attrezzo;
 /**
  * Questa classe modella la borsa del giocatore.
  *
- * @author  Paolo Merialdo, Valter Crescenzi (da un'idea di Michael Kolling and David J. Barnes)
+ * @author  Vincenzo D'Amico
  * @see Giocatore
- * @version 0.1
+ * @version 1.0
  */
 
 public class Borsa {
@@ -132,12 +132,12 @@ public class Borsa {
 	public String toString() {
 		StringBuilder s = new StringBuilder();
 		if (!this.isEmpty()) {
-			s.append("Contenuto borsa: ("+this.getPeso()+"kg/"+this.getPesoMax()+"kg): ");
+			s.append("Contenuto Borsa ("+this.getPeso()+"kg/"+this.getPesoMax()+"kg): ");
 			for (int i= 0; i<this.numeroAttrezzi; i++)
-				s.append("\n" + attrezzi[i].toString()+" ");
+				s.append("\n " + attrezzi[i].toString()+" ");
 		}
 		else
-			s.append("Borsa vuota");
+			s.append("Borsa Vuota");
 		return s.toString();
 	}
 }

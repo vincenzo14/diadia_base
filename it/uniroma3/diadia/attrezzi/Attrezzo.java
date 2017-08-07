@@ -6,13 +6,14 @@ package it.uniroma3.diadia.attrezzi;
  * del labirinto.
  * Ogni attrezzo ha un nome ed un peso.
  *
- * @author  Paolo Merialdo
+ * @author Vincenzo D'Amico
  * @see Stanza
- * @version 0.1
+ * @version 1.0
  *
  */
 public class Attrezzo {
 	private String nome;
+	private StringBuilder nomeInvertito;
 	private int peso;
 
 	/**
@@ -23,6 +24,11 @@ public class Attrezzo {
 	public Attrezzo(String nome, int peso) {
 		this.peso = peso;
 		this.nome = nome;
+	}
+
+	public Attrezzo(StringBuilder nomeInvertito, int pesoX2) {
+		this.peso = pesoX2;
+		this.nomeInvertito = nomeInvertito;
 	}
 
 	/**
@@ -39,6 +45,14 @@ public class Attrezzo {
 	 */
 	public int getPeso() {
 		return this.peso;
+	}
+	
+	/**
+	 * Restituisce il nome invertito dell'attrezzo
+	 * @return il nome invertito dell'attrezzo
+	 */
+	public StringBuilder getNomeInvertito() {
+		return nomeInvertito;
 	}
 
 	/**

@@ -6,9 +6,9 @@ import it.uniroma3.diadia.giocatore.Giocatore;
 /**
  * Questa classe modella una partita del gioco
  *
- * @author  Paolo Merialdo, Valter Crescenzi (da un'idea di Michael Kolling and David J. Barnes)
+ * @author  Vincenzo D'Amico
  * @see Stanza
- * @version 0.1
+ * @version 1.0
  */
 
 public class Partita {
@@ -46,5 +46,43 @@ public class Partita {
 	public void setFinita() {
 		this.finita = true;
 	}
+
+	/**
+	 * @return the labirinto
+	 */
+	public Labirinto getLabirinto() {
+		return labirinto;
+	}
+
+	/**
+	 * @param labirinto the labirinto to set
+	 */
+	public void setLabirinto(Labirinto labirinto) {
+		this.labirinto = labirinto;
+	}
+
+	/**
+	 * @return the giocatore
+	 */
+	public Giocatore getGiocatore() {
+		return giocatore;
+	}
+
+	/**
+	 * @param giocatore the giocatore to set
+	 */
+	public void setGiocatore(Giocatore giocatore) {
+		this.giocatore = giocatore;
+	}
+
+	public boolean giocatoreIsVivo() {
+		boolean vivo = true;
+		if (this.giocatore.getCfu()==0)
+		vivo = false;
+		
+		return vivo;
+	}
+	
+	
 	
 }

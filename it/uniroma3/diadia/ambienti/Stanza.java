@@ -7,9 +7,9 @@ import it.uniroma3.diadia.attrezzi.Attrezzo;
  * Una stanza e' un luogo fisico nel gioco.
  * E' collegata ad altre stanze attraverso delle uscite.
  * Ogni uscita e' associata ad una direzione.
- * @author Paolo Merialdo (a partire da un'idea di Michael Kolling e David J. Barnes)
+ * @author Vincenzo D'Amico
  * @see Attrezzo
- * @version 0.1
+ * @version 1.0
  */
 
 public class Stanza {
@@ -60,11 +60,11 @@ public class Stanza {
 	 * Restituisce la stanza dell'uscita specificata
 	 * @param direzione
 	 */
-	public Stanza getUscita(String direzione) {
+	public Stanza getStanzaAdiacente(String direzione) {
 		Stanza stanza = null;
-		for(int i=0; i<this.numeroDirezioni; i++)
+		for(int i=0; i<this.numeroDirezioni; i++) {
 			if (this.direzioni[i].equals(direzione))
-				stanza = this.stanzeConfinanti[i];
+				stanza = this.stanzeConfinanti[i]; }
 		return stanza;
 	}
 
@@ -129,7 +129,7 @@ public class Stanza {
 	public String toString() {
 		StringBuilder s = new StringBuilder();
 		s.append(this.getNome());
-		s.append("\nContenuto Stanza: ("+this.numeroAttrezzi+" / 10) Attrezzi");
+		s.append("\nContenuto Stanza ("+this.numeroAttrezzi+" / 10) Attrezzi");
 		s.append("\nUscite: ");
 		for (String direzione : this.direzioni)
 			if (direzione!=null)
@@ -142,6 +142,16 @@ public class Stanza {
 		else
 			s.append("\nNessun Attrezzo nella Stanza");
 		return s.toString();
+	}
+
+	public String toStringAttrezziStanza() {
+		StringBuilder s = new StringBuilder();
+		if (!this.isEmpty()) {
+			for (int i= 0; i<this.numeroAttrezzi; i++)
+				s.append(attrezzi[i].toString()+"\n");
+		}
+		return s.toString();
+
 	}
 
 	/**
@@ -178,5 +188,50 @@ public class Stanza {
 			direzioni[i] = this.direzioni[i];
 		return direzioni;
 	}
+
+	public int getContatoreAttrezziPosati() {
+		return 0;
+	}
+
+	public int getSogliaMagica() {
+		return 0;
+	}
+
+	/**
+	 * @return the numeroMassimoDirezioni
+	 */
+	public static int getNumeroMassimoDirezioni() {
+		return NUMERO_MASSIMO_DIREZIONI;
+	}
+
+	/**
+	 * @return the attrezzi
+	 */
+	public Attrezzo[] getAttrezzi() {
+		return attrezzi;
+	}
+
+	/**
+	 * @return the numeroAttrezzi
+	 */
+	public int getNumeroAttrezzi() {
+		return numeroAttrezzi;
+	}
+
+	/**
+	 * @return the stanzeConfinanti
+	 */
+	public Stanza[] getStanzeConfinanti() {
+		return stanzeConfinanti;
+	}
+
+	/**
+	 * @return the numeroDirezioni
+	 */
+	public int getNumeroDirezioni() {
+		return numeroDirezioni;
+	}
+
+
 
 }

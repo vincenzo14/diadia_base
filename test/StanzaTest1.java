@@ -13,9 +13,9 @@ public class StanzaTest1 {
 
 		mensa.impostaUscita("sud", bar);
 
-		System.out.println("Descrizione stanza dietro la porta nord del Bar: \n" + bar.getUscita("nord").getDescrizione());
+		System.out.println("Descrizione stanza dietro la porta nord del Bar: \n" + bar.getStanzaAdiacente("nord").getDescrizione());
 
-		System.out.println("Descrizione stanza dietro la porta sud della Mensa: \n" + mensa.getUscita("sud").getDescrizione());
+		System.out.println("Descrizione stanza dietro la porta sud della Mensa: \n" + mensa.getStanzaAdiacente("sud").getDescrizione());
 		
 		}
 
