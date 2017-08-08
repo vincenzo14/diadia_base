@@ -18,7 +18,7 @@ public class ComandoPosa implements Comando {
 	public void esegui(Partita partita) {
 		if (!partita.giocatore.borsa.isEmpty()){
 			if (nomeAttrezzo==null) {
-				System.out.println("Che attrezzo vuoi posare? Devi specificare il nome di un Attrezzo");
+				System.err.println("Che attrezzo vuoi posare? Devi specificare il nome di un Attrezzo");
 				System.out.println(partita.giocatore.borsa.toString());
 				return;
 			}
@@ -27,12 +27,12 @@ public class ComandoPosa implements Comando {
 				partita.labirinto.getStanzaDiIngresso().addAttrezzo(a);
 				System.out.println("Hai posato l'Attrezzo: " + a.getNome() + " Peso: "+ a.getPeso()+" Kg");
 
-			} else System.out.println("Attrezzo non presente nella Borsa");
+			} else System.err.println("Attrezzo non presente nella Borsa");
 
 			System.out.println(partita.labirinto.getStanzaDiIngresso().getDescrizione());	
 			System.out.println(partita.giocatore.borsa.toString());
 
-		} else System.out.println("Borsa Vuota");
+		} else System.err.println("Borsa Vuota");
 	}
 
 	public void setParametro(String parametro) {

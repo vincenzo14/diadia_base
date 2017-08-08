@@ -14,7 +14,7 @@ public class ComandoNonValido implements Comando{
 	 */
 	
 	public void esegui(Partita partita) {
-		System.out.println("Comando non valido! Usa il comando 'aiuto' per conoscere le possibili azioni");
+		System.err.println("Comando non valido! Usa il comando 'aiuto' per conoscere le possibili azioni");
 	}
 
 	public void setParametro(String parametro) {

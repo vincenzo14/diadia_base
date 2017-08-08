@@ -29,12 +29,12 @@ public class ComandoPrendi implements Comando {
 
 				} else System.out.println("Borsa troppo Pesante \nLiberati di Attrezzi per alleggerila");
 
-			else System.out.println("Attrezzo non presente nella Stanza");
+			else System.err.println("Attrezzo non presente nella Stanza");
 
 			System.out.println(partita.labirinto.getStanzaDiIngresso().getDescrizione());	 
 			System.out.println(partita.giocatore.borsa.toString());
 
-		} else System.out.println("Stanza Vuota");
+		} else System.err.println("Stanza Vuota");
 	}
 
 	public void setParametro(String parametro) {

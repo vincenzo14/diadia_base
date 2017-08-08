@@ -18,12 +18,12 @@ public class ComandoVai implements Comando {
 		Stanza stanzaDiIngresso = partita.labirinto.getStanzaDiIngresso();
 		Stanza prossimaStanza = null;
 		if (direzione==null) {
-			System.out.println("Dove vuoi andare? Devi specificare una direzione");
+			System.err.println("Dove vuoi andare? Devi specificare una direzione");
 			return;
 		}
 		prossimaStanza = stanzaDiIngresso.getStanzaAdiacente(this.direzione);
 		if (prossimaStanza==null) {
-			System.out.println("Direzione Errata!");
+			System.err.println("Direzione Errata!");
 			return;
 		}
 		if (prossimaStanza==stanzaDiIngresso) {
