@@ -11,7 +11,7 @@ package it.uniroma3.diadia.attrezzi;
  * @version 1.0
  *
  */
-public class Attrezzo {
+public class Attrezzo implements Comparable<Attrezzo>{
 	private String nome;
 	private StringBuilder nomeInvertito;
 	private int peso;
@@ -46,7 +46,7 @@ public class Attrezzo {
 	public int getPeso() {
 		return this.peso;
 	}
-	
+
 	/**
 	 * Restituisce il nome invertito dell'attrezzo
 	 * @return il nome invertito dell'attrezzo
@@ -62,6 +62,39 @@ public class Attrezzo {
 	public String toString() {
 		return this.getNome()+" ("+this.getPeso()+"kg)";
 
+	}
+
+	/**
+	 * Metodo che serve per generare l'hashcode dell'Attrezzo
+	 */
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
+		result = prime * result + peso;
+		return result;
+	}
+
+	/**
+	 * Questo metodo verifica se due attrezzi sono uguali
+	 * 
+	 * @param attrezzo l'attrezzo da confrontare
+	 * 
+	 * @return true se i due attrezzi sono uguali altrimenti false
+	 */
+
+	public boolean equals(Attrezzo attrezzo) {
+		return this.nome.equals(attrezzo.getNome()) && this.peso == attrezzo.getPeso();
+	}
+
+	/**
+	 * Metodo che server per comparare due attrezzi in base al nome
+	 */
+	@Override
+	public int compareTo(Attrezzo attrezzo) {
+		return this.getNome().compareTo(attrezzo.getNome());
 	}
 
 }

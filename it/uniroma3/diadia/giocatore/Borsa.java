@@ -1,10 +1,16 @@
 package it.uniroma3.diadia.giocatore;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 import it.uniroma3.diadia.attrezzi.Attrezzo;
+import it.uniroma3.diadia.attrezzi.ComparatoreAttrezziPerNome;
+import it.uniroma3.diadia.attrezzi.ComparatoreAttrezziPerPeso;
 
 /**
  * Questa classe modella la borsa del giocatore.
@@ -16,7 +22,7 @@ import it.uniroma3.diadia.attrezzi.Attrezzo;
 
 public class Borsa {
 	public final static int DEFAULT_PESO_MAX_BORSA = 10;
-	private List<Attrezzo> attrezzi;
+	private Set<Attrezzo> attrezzi;
 	private int numeroAttrezzi;
 	private int pesoMax;
 
@@ -25,7 +31,7 @@ public class Borsa {
 	}
 	public Borsa(int pesoMax) {
 		this.pesoMax = pesoMax;
-		this.attrezzi = new ArrayList<Attrezzo>(); // speriamo che bastino...
+		this.attrezzi = new HashSet<Attrezzo>();
 		this.numeroAttrezzi = 0;
 	}
 
@@ -39,8 +45,6 @@ public class Borsa {
 		if (attrezzo == null)
 			return false;
 		if (this.getPeso() + attrezzo.getPeso() > this.getPesoMax())
-			return false;
-		if (this.numeroAttrezzi==10)
 			return false;
 		numeroAttrezzi++;
 		return this.attrezzi.add(attrezzo);
@@ -123,6 +127,43 @@ public class Borsa {
 	}
 
 	/**
+	 * Metodo che restituisce il contenuto della borsa in un determinato ordine
+	 * 
+	 * @param c il comparator che serve per ordinare il contenuto della borsa
+	 * @return il contenuto della borsa sottoforma di lista
+	 */
+
+	public List<Attrezzo> getContenutoPer(Comparator<Attrezzo> c) {
+		List<Attrezzo> aTemp = new ArrayList<>();
+		aTemp.addAll(this.attrezzi);
+		Collections.sort(aTemp, c);
+		return aTemp;
+	}
+	
+	/**
+	 * Metodo che restituisce il contenuto della borsa ordinata per peso
+	 * 
+	 * @return il contenuto della borsa sottoforma di lista
+	 */
+	
+	public List<Attrezzo> getContentutoPerPeso(){
+		ComparatoreAttrezziPerPeso cp = new ComparatoreAttrezziPerPeso();
+		return this.getContenutoPer(cp);
+	}
+
+	/**
+	 * Restituisce una rappresentazione lista dell'insieme
+	 * degli attrezzi nella borsa ordinati per nome
+	 * 
+	 * @return la lista di Attrezzi Ordinata per nome  
+	 */
+
+	public List<Attrezzo> getContenutoOrdinatoPerNome() {
+		ComparatoreAttrezziPerNome cn = new ComparatoreAttrezziPerNome();
+		return this.getContenutoPer(cn);
+	}
+
+	/**
 	 * Restituisce una rappresentazione stringa della borsa,
 	 * stampadone il contenuto, gli attrezzi e relativi pesi.
 	 * 
@@ -142,4 +183,19 @@ public class Borsa {
 			s.append("Borsa Vuota");
 		return s.toString();
 	}
+	/**
+	 * @return the attrezzi
+	 */
+	public Set<Attrezzo> getAttrezzi() {
+		return attrezzi;
+	}
+	/**
+	 * @param attrezzi the attrezzi to set
+	 */
+	public void setAttrezzi(Set<Attrezzo> attrezzi) {
+		this.attrezzi = attrezzi;
+	}
+
+
+	
 }

@@ -12,11 +12,10 @@ public class Giocatore {
 	private String nome;
 	private int cfu;
 	private static int CFU_INIZIALI = 20;
-	private static int ATTREZZI_MASSIMI = 10;
 	public Borsa borsa;
 
 	public Giocatore(){
-		this.borsa = new Borsa(ATTREZZI_MASSIMI);
+		this.borsa = new Borsa(10);
 		this.cfu = CFU_INIZIALI;
 		this.nome = "Enzuccio";
 	}
@@ -36,6 +35,6 @@ public class Giocatore {
 	public String toString() {
 		return " Giocatore : " + nome + " \n CFU = " + cfu + " \n " + borsa;
 	}
-	
-	
+
+
 }
