@@ -34,21 +34,16 @@ public class StanzaBloccata extends Stanza{
 
 	@Override
 	public Stanza getStanzaAdiacente(String direzione) {
-		Stanza stanza = this;
-		for(int i=0; i<this.getNumeroDirezioni(); i++) {
-			if (this.getDirezioni()[i].equals(direzione))
-				if (!this.getDirezioni()[i].equals(this.direzione)) {
-					stanza = this.getStanzeConfinanti()[i];
-				}
-				else if (this.hasAttrezzo(attrezzoAprente)) {
-					if (this.getDirezioni()[i].equals(direzione))
-						stanza = this.getStanzeConfinanti()[i];
-				}
+		if (this.direzione.equals(direzione)) {
+			if (this.hasAttrezzo(attrezzoAprente)) {
+				return this.getStanzeAdiacenti().get(direzione);
+			} else {System.out.println("La Stanza  è Bloccata a " 
+					+ this.direzione.toUpperCase() 
+					+ "! \nCerca un Attrezzo per Aprirla");
+			return this;
+			}
 		}
-		if (direzione.equals(this.direzione) && (!this.hasAttrezzo(attrezzoAprente))) 
-			System.out.println("La Stanza " + stanza.getNome() + " è Bloccata a " + this.direzione.toUpperCase() + "! \nCerca un Attrezzo per Aprirla"); 
-
-		return stanza;
+		return this.getStanzeAdiacenti().get(direzione);
 	}
 
 	/**
@@ -83,7 +78,7 @@ public class StanzaBloccata extends Stanza{
 	public String getDescrizione() {
 		StringBuilder s = new StringBuilder();
 		s.append(this.getNome());
-		s.append("\nContenuto Stanza ("+getNumeroAttrezzi()+" / 10) Attrezzi");
+		s.append("\nContenuto Stanza ("+this.getAttrezzi().size()+" / 10) Attrezzi");
 		s.append("\nUscite: ");
 		for (String direzione : getDirezioni()){
 			if (direzione!=null)
@@ -95,8 +90,8 @@ public class StanzaBloccata extends Stanza{
 			s.append("\nLa stanza a " + direzione + " è Bloccata");
 		if (!this.isEmpty()) {
 			s.append("\nAttrezzi nella Stanza: ");
-			for (int i= 0; i<getNumeroAttrezzi(); i++)
-				s.append("\n" + getAttrezzi()[i].toString()+" ");
+			for (Attrezzo a : this.getAttrezzi())
+				s.append("\n " + a.toString()+" ");
 		}
 		else
 			s.append("\nNessun Attrezzo nella Stanza");
