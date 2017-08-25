@@ -51,7 +51,7 @@ public void init() {
 	Stanza biblioteca = new Stanza("Biblioteca");
 	Stanza aulaN1 = new Stanza("Aula N1");
 	Stanza aulaN2 = new StanzaBloccata("Aula N2", "sud", "chiaveN3");
-	Stanza aulaN3 = new Stanza("Aula N3");
+	Stanza aulaN3 = new StanzaBuia("Aula N3", "lampada");
 	Stanza aulaN4 = new Stanza("Aula N4");
 	Stanza aulaN5 = new Stanza("Aula N5");
 	
