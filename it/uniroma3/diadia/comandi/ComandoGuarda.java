@@ -12,27 +12,40 @@ public class ComandoGuarda implements Comando {
 	 * 
 	 */
 
-	private String direzione;
+	private String borsaOrdinata;
 
 	public void esegui(Partita partita) {
-		if (direzione==null){
+		if (borsaOrdinata==null){
 			System.out.println(partita.labirinto.getStanzaDiIngresso().getDescrizione());
 			System.out.println(partita.getGiocatore().toString());
 		}
-		else System.out.println("Il comando Guarda va usato da solo senza altri Comandi");
+		else if (partita.giocatore.borsa.isEmpty()) {
+			System.out.println("Borsa Vuota");
+		}
+		else if (borsaOrdinata.equals("borsaPerNome")) {
+			System.out.println(partita.getGiocatore().borsa.getContenutoOrdinatoPerNome());
+		}
+		else if (borsaOrdinata.equals("borsaPerPeso")) {
+			System.out.println(partita.getGiocatore().borsa.getContentutoPerPeso());
+		}
+		else if (borsaOrdinata.equals("borsaPerSogliaPeso")) {
+			System.out.println(partita.getGiocatore().borsa.getContenutoRaggruppatoPerPeso());
+		}
+
+
 	}
 
 	public void setParametro(String parametro) {
-		this.direzione = parametro;
+		this.borsaOrdinata = parametro;
 	}
-	
+
 	public String getNome() {
 		return ("guarda");
-		
+
 	}
 
 	public String getParametro() {
-		return this.direzione;		
+		return this.borsaOrdinata;		
 	}
 
 }
