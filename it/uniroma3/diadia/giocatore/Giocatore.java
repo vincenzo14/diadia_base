@@ -28,9 +28,13 @@ public class Giocatore {
 		this.cfu = cfu;
 	}
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
+	/**
+	 * @return the nome
 	 */
+	public String getNome() {
+		return nome;
+	}
+
 	@Override
 	public String toString() {
 		return " Giocatore : " + nome + " \n CFU = " + cfu + " \n " + borsa;

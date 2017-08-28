@@ -2,7 +2,7 @@ package test;
 
 import it.uniroma3.diadia.attrezzi.Attrezzo;
 
-public class AttrezzoTest {
+public class TestAttrezzo {
 
 	public static void main(String[] args) {
 		
