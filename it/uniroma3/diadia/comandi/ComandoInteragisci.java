@@ -1,6 +1,7 @@
 package it.uniroma3.diadia.comandi;
 
 import it.uniroma3.diadia.Partita;
+import it.uniroma3.diadia.direzioni.Direzione;
 import it.uniroma3.diadia.personaggi.AbstractPersonaggio;
 
 public class ComandoInteragisci implements Comando {
@@ -44,6 +45,9 @@ public class ComandoInteragisci implements Comando {
 	public String getParametro() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	@Override
+	public void setDirezione(Direzione parametro) {		
 	}
 
 }

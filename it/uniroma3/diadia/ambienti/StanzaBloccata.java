@@ -1,6 +1,7 @@
 package it.uniroma3.diadia.ambienti;
 
 import it.uniroma3.diadia.attrezzi.Attrezzo;
+import it.uniroma3.diadia.direzioni.Direzione;
 
 /**
  * Classe StanzaBloccata - una stanza in un gioco di ruolo.
@@ -19,26 +20,26 @@ import it.uniroma3.diadia.attrezzi.Attrezzo;
 
 public class StanzaBloccata extends Stanza{
 
-	private String direzione;
+	private Direzione direzione;
 	private String attrezzoAprente;
 
 	public StanzaBloccata(String nome) {
 		super(nome);
 	}
 
-	public StanzaBloccata(String nome, String direzione, String attrezzoAprente) {
+	public StanzaBloccata(String nome, Direzione direzione, String attrezzoAprente) {
 		super(nome);
 		this.direzione = direzione;
 		this.attrezzoAprente = attrezzoAprente;
 	}
 
 	@Override
-	public Stanza getStanzaAdiacente(String direzione) {
+	public Stanza getStanzaAdiacente(Direzione direzione) {
 		if (this.direzione.equals(direzione)) {
 			if (this.hasAttrezzo(attrezzoAprente)) {
 				return this.getStanzeAdiacenti().get(direzione);
 			} else {System.out.println("La Stanza  è Bloccata a " 
-					+ this.direzione.toUpperCase() 
+					+ this.direzione 
 					+ "! \nCerca un Attrezzo per Aprirla");
 			return this;
 			}
@@ -49,14 +50,14 @@ public class StanzaBloccata extends Stanza{
 	/**
 	 * @return the direzione
 	 */
-	public String getDirezione() {
+	public Direzione getDirezione() {
 		return direzione;
 	}
 
 	/**
 	 * @param direzione the direzione to set
 	 */
-	public void setDirezione(String direzione) {
+	public void setDirezione(Direzione direzione) {
 		this.direzione = direzione;
 	}
 
@@ -80,7 +81,7 @@ public class StanzaBloccata extends Stanza{
 		s.append(this.getNome());
 		s.append("\nContenuto Stanza ("+this.getAttrezzi().size()+" / 10) Attrezzi");
 		s.append("\nUscite: ");
-		for (String direzione : getDirezioni()){
+		for (Direzione direzione : getDirezioni()){
 			if (direzione!=null)
 				s.append(" " + direzione);
 		}

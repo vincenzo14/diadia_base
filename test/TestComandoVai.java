@@ -1,10 +1,8 @@
 package test;
 
 import static org.junit.Assert.*;
-
 import org.junit.Test;
 
-import it.uniroma3.diadia.Partita;
 import it.uniroma3.diadia.comandi.*;
 
 public class TestComandoVai {
@@ -35,33 +33,4 @@ public class TestComandoVai {
 	public void testNomeComandoVaiOvest() {
 		assertEquals(("vai"), comandoVaiOvest.getNome());
 	}
-	
-	@Test
-	public void testParametroComandoVaiNord() {
-		assertEquals(("nord"), comandoVaiNord.getParametro());
-	}
-	
-	@Test
-	public void testParametroComandoVaiSud() {
-		assertEquals(("sud"), comandoVaiSud.getParametro());
-	}
-	
-	@Test
-	public void testParametroComandoVaiEst() {
-		assertEquals(("est"), comandoVaiEst.getParametro());
-	}
-	
-	@Test
-	public void testParametroComandoVaiOvest() {
-		assertEquals(("ovest"), comandoVaiOvest.getParametro());
-	}
-	
-	@Test
-	public void testFunzionamentoComandoVaiSud() {
-		Partita partita = new Partita();	
-		System.out.print("Ci dovremmo trovare nell'");
-		comandoVaiSud.esegui(partita);
-		assertEquals("Aula N10", partita.labirinto.getStanzaDiIngresso().getNome());
-	}
-
 }

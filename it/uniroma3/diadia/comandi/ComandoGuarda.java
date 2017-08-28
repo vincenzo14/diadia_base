@@ -1,6 +1,7 @@
 package it.uniroma3.diadia.comandi;
 
 import it.uniroma3.diadia.Partita;
+import it.uniroma3.diadia.direzioni.Direzione;
 
 public class ComandoGuarda implements Comando {
 
@@ -46,6 +47,9 @@ public class ComandoGuarda implements Comando {
 
 	public String getParametro() {
 		return this.borsaOrdinata;		
+	}
+	@Override
+	public void setDirezione(Direzione parametro) {		
 	}
 
 }

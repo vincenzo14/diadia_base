@@ -11,6 +11,7 @@ import it.uniroma3.diadia.attrezzi.Attrezzo;
 import it.uniroma3.diadia.personaggi.Cane;
 import it.uniroma3.diadia.personaggi.Mago;
 import it.uniroma3.diadia.personaggi.Strega;
+import static it.uniroma3.diadia.direzioni.Direzione.*;
 
 public class TestComandoInteragisci {
 
@@ -28,8 +29,8 @@ public class TestComandoInteragisci {
 
 	@Before
 	public void setUp() {
-		stanzaDellaStrega.impostaUscita("nord", stanzaDelMago);
-		stanzaDellaStrega.impostaUscita("sud", stanzaDelCane);
+		stanzaDellaStrega.impostaUscita(nord, stanzaDelMago);
+		stanzaDellaStrega.impostaUscita(sud, stanzaDelCane);
 		stanzaDellaStrega.aggiungiPersonaggio(strega);
 		stanzaDelMago.aggiungiPersonaggio(mago);
 		stanzaDelCane.aggiungiPersonaggio(cane);

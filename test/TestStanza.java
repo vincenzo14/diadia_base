@@ -7,6 +7,7 @@ import org.junit.Test;
 
 import it.uniroma3.diadia.ambienti.Stanza;
 import it.uniroma3.diadia.attrezzi.Attrezzo;
+import static it.uniroma3.diadia.direzioni.Direzione.*;
 
 
 
@@ -24,17 +25,17 @@ public class TestStanza {
 	@Before
 	public void setUp() {
 
-		this.aulaN1.impostaUscita("nord", aulaN10);
-		this.aulaN10.impostaUscita("sud", aulaN1);
+		this.aulaN1.impostaUscita(nord, aulaN10);
+		this.aulaN10.impostaUscita(sud, aulaN1);
 
-		this.aulaN11.impostaUscita("sud", aulaN10);
-		this.aulaN10.impostaUscita("nord", aulaN11);
+		this.aulaN11.impostaUscita(sud, aulaN10);
+		this.aulaN10.impostaUscita(nord, aulaN11);
 
-		this.mensa.impostaUscita("ovest", aulaN10);
-		this.aulaN10.impostaUscita("est", mensa);
+		this.mensa.impostaUscita(ovest, aulaN10);
+		this.aulaN10.impostaUscita(est, mensa);
 
-		this.ascensore.impostaUscita("est", aulaN10);
-		this.aulaN10.impostaUscita("ovest", ascensore);
+		this.ascensore.impostaUscita(est, aulaN10);
+		this.aulaN10.impostaUscita(ovest, ascensore);
 
 		this.aulaN10.addAttrezzo(scudo);
 
@@ -44,42 +45,42 @@ public class TestStanza {
 
 	@Test
 	public void testUscita() {
-		assertEquals(aulaN11, this.aulaN10.getStanzaAdiacente("nord"));
+		assertEquals(aulaN11, this.aulaN10.getStanzaAdiacente(nord));
 	}
 
 	@Test
 	public void testUscitaNonNulla() {
-		assertNotNull(this.aulaN1.getStanzaAdiacente("nord"));
+		assertNotNull(this.aulaN1.getStanzaAdiacente(nord));
 	}
 
 	@Test
 	public void testUscitaNulla() {
-		assertNull(this.aulaN11.getStanzaAdiacente("nord"));
+		assertNull(this.aulaN11.getStanzaAdiacente(nord));
 
 	}
-	
+
 	@Test
 	public void testRimuoviAttrezzoDallaStanza() {
 		this.aulaN10.removeAttrezzo("Scudo");
 		assertFalse(this.aulaN10.hasAttrezzo("Scudo"));
 	}
-	
+
 	@Test
 	public void testAggiungiAttrezzoNellaStanza() {
 		this.aulaN10.addAttrezzo(spada);
 		assertTrue(this.aulaN10.hasAttrezzo("Spada"));
 	}
-	
+
 	@Test
 	public void testCercaAttrezzoNellaStanzaPerNome() {
 		assertEquals(scudo, this.aulaN10.getAttrezzo("Scudo"));
 	}
-	
+
 	@Test
 	public void testStanzaVuota() {
 		assertTrue(this.ascensore.isEmpty());
 	}
-	
+
 	@Test
 	public void testStanzaNONVuota() {
 		assertFalse(this.aulaN10.isEmpty());

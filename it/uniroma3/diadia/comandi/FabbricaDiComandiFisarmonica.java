@@ -1,6 +1,7 @@
 package it.uniroma3.diadia.comandi;
 
 import java.util.Scanner;
+import it.uniroma3.diadia.direzioni.DirezioneDiComando;
 
 public class FabbricaDiComandiFisarmonica implements FabbricaDiComandi {
 
@@ -8,11 +9,12 @@ public class FabbricaDiComandiFisarmonica implements FabbricaDiComandi {
 		Scanner scannerDiParole = new Scanner(istruzione);
 		String nomeComando = null;
 		String parametro = null;
+		DirezioneDiComando d = new DirezioneDiComando();
 		Comando comando = null;
 
 		if (scannerDiParole.hasNext())
 			nomeComando = scannerDiParole.next(); // prima parola: nome del comando
-		
+
 		if (scannerDiParole.hasNext())
 			parametro = scannerDiParole.next(); // seconda parola: eventuale parametro
 
@@ -36,8 +38,8 @@ public class FabbricaDiComandiFisarmonica implements FabbricaDiComandi {
 			comando = new ComandoInteragisci();
 		else comando = new ComandoNonValido();
 		comando.setParametro(parametro);
+		comando.setDirezione(d.OttieniDirezione(parametro));
 		return comando;
 
 	}
-
 }

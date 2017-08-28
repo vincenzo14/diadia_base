@@ -2,6 +2,7 @@ package test;
 
 import it.uniroma3.diadia.ambienti.Stanza;
 import it.uniroma3.diadia.attrezzi.Attrezzo;
+import static it.uniroma3.diadia.direzioni.Direzione.*;
 
 public class StanzaTest2 {
 
@@ -13,8 +14,8 @@ public class StanzaTest2 {
 		Attrezzo tazzina = new Attrezzo("Tazzina", 3);
 		Attrezzo piatto = new Attrezzo("Piatto", 5);
 		
-		bar.impostaUscita("nord", mensa);
-		mensa.impostaUscita("sud", bar);
+		bar.impostaUscita(nord, mensa);
+		mensa.impostaUscita(sud, bar);
 		
 		bar.addAttrezzo(tazzina);
 		mensa.addAttrezzo(piatto);
@@ -22,8 +23,8 @@ public class StanzaTest2 {
 		System.out.println(mensa.getDescrizione() + "\n");
 		System.out.println(bar.getDescrizione() + "\n");
 				
-		System.out.println("Nome e peso dell'Attrezzo dietro la porta nord del Bar: \n" + bar.getStanzaAdiacente("nord").getAttrezzo("Piatto"));
-		System.out.println("Nome e peso dell'Attrezzo dietro la porta sud dela Mensa: \n" + mensa.getStanzaAdiacente("sud").getAttrezzo("Tazzina"));
+		System.out.println("Nome e peso dell'Attrezzo dietro la porta nord del Bar: \n" + bar.getStanzaAdiacente(nord).getAttrezzo("Piatto"));
+		System.out.println("Nome e peso dell'Attrezzo dietro la porta sud dela Mensa: \n" + mensa.getStanzaAdiacente(sud).getAttrezzo("Tazzina"));
 		
 	}
 

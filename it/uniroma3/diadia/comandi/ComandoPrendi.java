@@ -1,6 +1,7 @@
 package it.uniroma3.diadia.comandi;
 
 import it.uniroma3.diadia.Partita;
+import it.uniroma3.diadia.direzioni.Direzione;
 
 public class ComandoPrendi implements Comando {
 
@@ -49,6 +50,9 @@ public class ComandoPrendi implements Comando {
 
 	public String getParametro() {
 		return this.nomeAttrezzo;		
+	}
+	@Override
+	public void setDirezione(Direzione parametro) {		
 	}
 
 }
