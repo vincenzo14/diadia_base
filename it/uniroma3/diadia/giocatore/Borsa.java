@@ -3,10 +3,14 @@ package it.uniroma3.diadia.giocatore;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
+import java.util.SortedSet;
+import java.util.TreeSet;
 
 import it.uniroma3.diadia.attrezzi.Attrezzo;
 import it.uniroma3.diadia.attrezzi.ComparatoreAttrezziPerNome;
@@ -139,13 +143,13 @@ public class Borsa {
 		Collections.sort(aTemp, c);
 		return aTemp;
 	}
-	
+
 	/**
 	 * Metodo che restituisce il contenuto della borsa ordinata per peso
 	 * 
 	 * @return il contenuto della borsa sottoforma di lista
 	 */
-	
+
 	public List<Attrezzo> getContentutoPerPeso(){
 		ComparatoreAttrezziPerPeso cp = new ComparatoreAttrezziPerPeso();
 		return this.getContenutoPer(cp);
@@ -161,6 +165,45 @@ public class Borsa {
 	public List<Attrezzo> getContenutoOrdinatoPerNome() {
 		ComparatoreAttrezziPerNome cn = new ComparatoreAttrezziPerNome();
 		return this.getContenutoPer(cn);
+	}
+
+	/**
+	 * restituisce una mappa che associa un intero (rappresentante un
+	 * peso) con l’insieme (comunque non vuoto) degli attrezzi di tale
+	 * peso: tutti gli attrezzi dell'insieme che figura come valore hanno lo
+	 * stesso peso pari all'intero che figura come chiave
+	 * 
+	 * @return la mappa che associa gli Attrezzi al Peso
+	 */
+
+	public Map<Integer,Set<Attrezzo>> getContenutoRaggruppatoPerPeso() {
+		Set<Attrezzo> tmp;
+		Map<Integer, Set<Attrezzo>> mappa = new HashMap<Integer, Set<Attrezzo>>();
+
+		for (Attrezzo a : this.attrezzi) {
+			tmp = mappa.get(a.getPeso());
+			if (tmp == null)
+				tmp = new HashSet<Attrezzo>();
+			tmp.add(a);
+			mappa.put(a.getPeso(), tmp);
+		}
+		return mappa;
+	}
+
+	/**
+	 * Restituisce l'insieme gli attrezzi nella borsa ordinati per 
+	 * peso e quindi, a parità di peso, per nome
+	 * 
+	 * @return attrezzi nella borsa ordinati per peso
+	 */
+
+	public SortedSet<Attrezzo> getSortedSetOrdinatoPerPeso() {
+		ComparatoreAttrezziPerPeso cp = new ComparatoreAttrezziPerPeso();
+		SortedSet<Attrezzo> tmp = new TreeSet<Attrezzo>(cp);
+		for (Attrezzo a : this.attrezzi) {
+			tmp.add(a);
+		}
+		return tmp;
 	}
 
 	/**
@@ -197,5 +240,5 @@ public class Borsa {
 	}
 
 
-	
+
 }

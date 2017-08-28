@@ -88,6 +88,8 @@ public class StanzaBloccata extends Stanza{
 			s.append("\nLa stanza a " + direzione + " è Sbloccata");
 		else if (direzione.equals(this.direzione))
 			s.append("\nLa stanza a " + direzione + " è Bloccata");
+		if (this.getPersonaggio() != null) 
+			s.append("\nPersonaggio della stanza: " + this.getPersonaggio().toString());
 		if (!this.isEmpty()) {
 			s.append("\nAttrezzi nella Stanza: ");
 			for (Attrezzo a : this.getAttrezzi())

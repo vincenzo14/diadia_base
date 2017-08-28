@@ -1,6 +1,7 @@
 package it.uniroma3.diadia.ambienti;
 
 import it.uniroma3.diadia.attrezzi.Attrezzo;
+import it.uniroma3.diadia.personaggi.AbstractPersonaggio;
 
 /**
  * Classe StanzaProtected - una stanza in un gioco di ruolo.
@@ -23,7 +24,9 @@ public class StanzaProtected {
 	protected int numeroAttrezzi;
 	protected Stanza[] stanzeConfinanti;
 	protected int numeroDirezioni;
-	protected String[] direzioni;	
+	protected String[] direzioni;
+	
+	private AbstractPersonaggio personaggio;
 	
 		/**
 		 * Crea una stanza. Inizialmente non ci sono uscite.
@@ -138,6 +141,8 @@ public class StanzaProtected {
 			for (String direzione : this.direzioni)
 				if (direzione!=null)
 					s.append(" " + direzione);
+			if (this.personaggio != null) 
+				s.append("\nPersonaggio della stanza: " + this.personaggio.toString());
 			if (!this.isEmpty()) {
 				s.append("\nAttrezzi nella Stanza: ");
 				for (int i= 0; i<this.numeroAttrezzi; i++)
