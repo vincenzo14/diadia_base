@@ -114,7 +114,7 @@ public class Labirinto {
 		aulaN10.aggiungiPersonaggio(merlino);
 		aulaN11.aggiungiPersonaggio(gaetano);
 		aulaN1.aggiungiPersonaggio(filippo);
-		aulaN2.aggiungiPersonaggio(serena);
+		atrio.aggiungiPersonaggio(serena);
 
 		/** il gioco comincia nell'atrio */
 		this.stanzaDiIngresso = atrio;  

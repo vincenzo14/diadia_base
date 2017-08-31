@@ -59,7 +59,8 @@ public class Strega extends AbstractPersonaggio{
 		} else {
 			partita.labirinto.setStanzaDiIngresso(trovaStanzaConPiùAttrezzi(partita));
 			stanzaDiArrivo = partita.labirinto.getStanzaDiIngresso().toString();
-			System.out.println(this.getNome()+ ": Dato che sei stato molto cortese con me Userò la mia magia per Aiutarti");
+			System.out.println(this.getNome()+ ": Dato che sei stato molto cortese con me"); 
+			System.out.println(this.getNome()+ ": Userò la mia magia per Aiutarti");
 		}
 		return stanzaDiArrivo;
 	}
